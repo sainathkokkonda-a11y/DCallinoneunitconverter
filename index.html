@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All-in-One Unit Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="converter-card">
+  <div class="header-box">
+    <h2>All-in-One Unit Converter</h2>
+    <p>Convert units easily across multiple categories</p>
+  </div>
+
+  <div class="form-body">
+    
+    <!-- Category Selector -->
+    <div class="input-group">
+      <label for="category">Select Category</label>
+      <select id="category" class="custom-select" onchange="loadUnits()">
+        <option value="length">Length / Distance</option>
+        <option value="weight">Weight / Mass</option>
+        <option value="temperature">Temperature</option>
+        <option value="area">Area</option>
+        <option value="volume">Volume</option>
+        <option value="speed">Speed</option>
+        <option value="time">Time</option>
+        <option value="data">Data Storage</option>
+        <option value="energy">Energy</option>
+        <option value="pressure">Pressure</option>
+      </select>
+    </div>
+
+    <!-- Input Value -->
+    <div class="input-group">
+      <label for="inputValue">Enter Value</label>
+      <input type="number" id="inputValue" class="custom-input" value="1" placeholder="Enter number..." oninput="convert()">
+    </div>
+
+    <!-- From and To Selectors -->
+    <div class="conversion-grid">
+      <div class="input-group" style="margin: 0;">
+        <label for="fromUnit">From</label>
+        <select id="fromUnit" class="custom-select" onchange="convert()"></select>
+      </div>
+
+      <button class="swap-btn" onclick="swapUnits()" title="Swap Units">⇆</button>
+
+      <div class="input-group" style="margin: 0;">
+        <label for="toUnit">To</label>
+        <select id="toUnit" class="custom-select" onchange="convert()"></select>
+      </div>
+    </div>
+
+    <!-- Result Display -->
+    <div class="result-box">
+      <div class="result-title">Converted Result</div>
+      <div class="result-value" id="resultValue">0</div>
+      <div class="formula-text" id="formulaText">Select units to see formula</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button class="btn-reset" onclick="resetAll()">Reset</button>
+      <button class="btn-copy" id="copyBtn" onclick="copyResult()">Copy Result</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
